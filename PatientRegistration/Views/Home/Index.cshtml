@@ -1,8 +1,401 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model PatientRegistrationModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Patient Registration";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <h1>Patient Registration Form</h1>
+
+    <form asp-action="Index" method="post">
+
+        <!-- PATIENT INFORMATION -->
+        <fieldset class="patient">
+            <legend>Patient Information</legend>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientLastName">*Last Name</label>
+                    <input asp-for="PatientLastName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientFirstName">*First Name</label>
+                    <input asp-for="PatientFirstName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientMiddleInitial">Middle Initial</label>
+                    <input asp-for="PatientMiddleInitial" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientAddress">*Address</label>
+                    <input asp-for="PatientAddress" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientCity">City</label>
+                    <input asp-for="PatientCity" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientState">State</label>
+                    <input asp-for="PatientState" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientZip">Zip</label>
+                    <input asp-for="PatientZip" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientHomePhone">Home Phone</label>
+                    <input asp-for="PatientHomePhone"
+                           placeholder="xxx-xxx-xxxx" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientSSN">*Social Security Number</label>
+                    <input asp-for="PatientSSN"
+                           placeholder="xxx-xx-xxxx" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientDOB">*Date of Birth</label>
+                    <input asp-for="PatientDOB"
+                           placeholder="mm/dd/yyyy" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientAge">Age</label>
+                    <input asp-for="PatientAge" type="number" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientSex">*Sex</label>
+                    <select asp-for="PatientSex">
+                        <option value="">Select</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientMaritalStatus">Marital Status</label>
+                    <input asp-for="PatientMaritalStatus" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientDriversLicense">Driver's License</label>
+                    <input asp-for="PatientDriversLicense" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientEmployer">*Employer Name and Address</label>
+                    <input asp-for="PatientEmployer" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientWorkPhone">Work Phone</label>
+                    <input asp-for="PatientWorkPhone"
+                           placeholder="xxx-xxx-xxxx" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PatientEmail">Email Address</label>
+                    <input asp-for="PatientEmail" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PatientCellPhone">Cell Phone</label>
+                    <input asp-for="PatientCellPhone"
+                           placeholder="xxx-xxx-xxxx" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="EmergencyContactName">Emergency Contact Name</label>
+                    <input asp-for="EmergencyContactName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="EmergencyPhone">Emergency Phone</label>
+                    <input asp-for="EmergencyPhone"
+                           placeholder="xxx-xxx-xxxx" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="ReferredBy">Referred By</label>
+                    <input asp-for="ReferredBy" />
+                </div>
+            </div>
+        </fieldset>
+
+
+        <!-- GUARANTOR INFORMATION -->
+        <fieldset class="guarantor">
+            <legend>Guarantor Information</legend>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorRelationship">
+                        *Relationship to Patient
+                    </label>
+                    <select asp-for="GuarantorRelationship">
+                        <option value="">Select</option>
+                        <option value="Self">Self</option>
+                        <option value="Spouse">Spouse</option>
+                        <option value="Parent">Parent</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorLastName">*Last Name</label>
+                    <input asp-for="GuarantorLastName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorFirstName">*First Name</label>
+                    <input asp-for="GuarantorFirstName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorMiddleInitial">Middle Initial</label>
+                    <input asp-for="GuarantorMiddleInitial" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorAddress">*Address</label>
+                    <input asp-for="GuarantorAddress" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorCity">City</label>
+                    <input asp-for="GuarantorCity" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorState">State</label>
+                    <input asp-for="GuarantorState" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorZip">Zip</label>
+                    <input asp-for="GuarantorZip" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorHomePhone">Home Phone</label>
+                    <input asp-for="GuarantorHomePhone"
+                           placeholder="xxx-xxx-xxxx" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorSSN">*Social Security Number</label>
+                    <input asp-for="GuarantorSSN"
+                           placeholder="xxx-xx-xxxx" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorDOB">*Date of Birth</label>
+                    <input asp-for="GuarantorDOB"
+                           placeholder="mm/dd/yyyy" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorAge">Age</label>
+                    <input asp-for="GuarantorAge" type="number" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorSex">*Sex</label>
+                    <select asp-for="GuarantorSex">
+                        <option value="">Select</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="GuarantorEmployer">
+                        *Employer Name and Address
+                    </label>
+                    <input asp-for="GuarantorEmployer" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="GuarantorWorkPhone">Work Phone</label>
+                    <input asp-for="GuarantorWorkPhone"
+                           placeholder="xxx-xxx-xxxx" />
+                </div>
+            </div>
+        </fieldset>
+
+
+        <!-- INSURANCE INFORMATION -->
+        <fieldset class="insurance">
+            <legend>Insurance Information</legend>
+
+            <h3>Primary Insurance</h3>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PrimaryPlanName">Plan Name</label>
+                    <input asp-for="PrimaryPlanName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PrimaryInsuredName">*Insured's Name</label>
+                    <input asp-for="PrimaryInsuredName" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PrimarySSN">Insured's Social Security Number</label>
+                    <input asp-for="PrimarySSN"
+                           placeholder="xxx-xx-xxxx" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PrimaryDOB">*Insured's Date of Birth</label>
+                    <input asp-for="PrimaryDOB"
+                           placeholder="mm/dd/yyyy" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PrimaryPolicyID">*Policy / ID Number</label>
+                    <input asp-for="PrimaryPolicyID" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PrimaryGroup">*Group Number</label>
+                    <input asp-for="PrimaryGroup" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="PrimaryEffectiveDate">Effective Date</label>
+                    <input asp-for="PrimaryEffectiveDate"
+                           placeholder="mm/dd/yyyy" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="PrimaryClaimsAddressPhone">
+                        Claims Address and Phone
+                    </label>
+                    <input asp-for="PrimaryClaimsAddressPhone" />
+                </div>
+            </div>
+
+            <h3>Secondary Insurance</h3>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="SecondaryPlanName">Plan Name</label>
+                    <input asp-for="SecondaryPlanName" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="SecondaryInsuredName">*Insured's Name</label>
+                    <input asp-for="SecondaryInsuredName" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="SecondarySSN">
+                        *Insured's Social Security Number
+                    </label>
+                    <input asp-for="SecondarySSN"
+                           placeholder="xxx-xx-xxxx" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="SecondaryDOB">*Insured's Date of Birth</label>
+                    <input asp-for="SecondaryDOB"
+                           placeholder="mm/dd/yyyy" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="SecondaryPolicyID">*Policy / ID Number</label>
+                    <input asp-for="SecondaryPolicyID" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="SecondaryGroup">*Group Number</label>
+                    <input asp-for="SecondaryGroup" />
+                </div>
+
+                <div class="field">
+                    <label asp-for="SecondaryEffectiveDate">*Effective Date</label>
+                    <input asp-for="SecondaryEffectiveDate"
+                           placeholder="mm/dd/yyyy" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label asp-for="SecondaryClaimsAddressPhone">
+                        Claims Address and Phone
+                    </label>
+                    <input asp-for="SecondaryClaimsAddressPhone" />
+                </div>
+            </div>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+
+        <div asp-validation-summary="All" class="errors"></div>
+
+        @if (ViewBag.Message != null)
+        {
+            <p class="success">@ViewBag.Message</p>
+        }
+
+    </form>
+</body>
+</html>

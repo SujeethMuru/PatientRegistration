@@ -1,31 +1,88 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
-  margin-bottom: 60px;
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f5f5f5;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+h1 {
+    text-align: center;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+h3 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid gray;
+}
+
+legend {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Patient Information - Blue */
+.patient {
+    background-color: #dbeafe;
+}
+
+/* Guarantor Information - Green */
+.guarantor {
+    background-color: #dcfce7;
+}
+
+/* Insurance Information - Red */
+.insurance {
+    background-color: #fee2e2;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 8px;
+    border: 1px solid gray;
+    background-color: white;
+    font-size: 14px;
+}
+
+.errors {
+    color: red;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+    .errors li {
+        margin-bottom: 5px;
+    }
+
+.success {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 25px;
+    cursor: pointer;
 }
